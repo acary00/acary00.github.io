@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Information
+{% endblock %}
+
+{% block main %}
+    <h1>{{ org }}</h1>
+    <h2>Description</h2>
+    <p>{{ desc }}
+
+    </p>
+    <h2>Q-Score Breakdown</h2>
+
+    <table class="table table-pop">
+        <thead>
+            <tr>
+                <th>People</th>
+                <th>Organization</th>
+                <th>Community</th>
+                <th>Clout</th>
+                <th>Career</th>
+                <th>Network</th>
+                <th>Q-Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for avg in avgList %}
+                    <td>{{ avg }}</td>
+                {% endfor %}
+                <td>{{ qscore }}</td>
+            </tr>
+            </tbody>
+    </table>
+
+    <h6>Average time commitment/week (in hours): {{ hrs }}</h6>
+
+    <table>
+        <thead class='comment'>
+            <th>General Comments</th>
+        </thead>
+        <tbody>
+            {% if org_t == '' %}
+                <tr>
+                    <td>No comments have been left about this organization yet</td>
+                </tr>
+            {% else %}
+                {% for t in org_t %}
+                    <tr>
+                        <td>{{ t }}</td>
+                    </tr>
+                {% endfor %}
+
+            {% endif %}
+        </tbody>
+    </table>
+
+    {% if comp == 'y' %}
+        <h6>Comp Difficulty: {{ c_diff }}</h6>
+        <h6>Average Time spent on comp (hours/week): {{ c_time }}</h6>
+        <table>
+            <thead class='comment'>
+                <th>Comments about Comp</th>
+            </thead>
+            <tbody>
+                {% if comp_t == '' %}
+                    <tr>
+                        <td>No comments have been left about the comp yet</td>
+                    </tr>
+                {% else %}
+                    {% for c in comp_t %}
+                        <tr>
+                            <td>{{ c }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    {% else %}
+    {% endif %}
+    <p>
+
+
+    </p>
+    <div class="form-group">
+        <form action="/organizations/{{ org }}" method="post">
+            <input name="orgName" type="hidden" value="{{ org }}" />
+            <button class="btn btn-primary" type="submit">Add to favorites!</button>
+        </form>
+    </div>
+
+
+{% endblock %}
+<!-- org=org, desc = desc, people=people, clout=clout, organization=organization, career=career, community=community, networking=networking, hrs=hrs, qscore=qscore, org_t=org_t, comp=comp, c_diff=c_diff, c_time=c_time, comp_t=comp_t)
+-->

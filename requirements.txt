@@ -1,0 +1,7 @@
+cs50
+Authlib==0.14.3
+Flask==1.1.2
+Flask-Session==0.3.2
+python-dotenv
+requests
+six

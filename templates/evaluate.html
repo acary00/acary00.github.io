@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Evaluate
+{% endblock %}
+
+{% block main %}
+    <datalist id='slidersteps'>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </datalist>
+    <form action="/evaluate" method="post">
+        <div class="form-group">
+            <select name='org' required>
+                <option disabled selected value=''>Organization</option>
+                {% for org in orgs %}
+                    <option value='{{ org }}'>{{ org }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="slidecontainer">
+            <h5>People</h5>
+            <span class='span-slider'>...I like the activity</span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name='people' id='people'>
+            <span class='span-slider'>absolute gems</span>
+        </div>
+        <div class="slidecontainer">
+            <h5>Clout</h5>
+            <span class='span-slider'>no one cares</span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name = 'clout' id='clout'>
+            <span class='span-slider'>patagucci</span>
+        </div>
+        <div class="slidecontainer">
+            <h5>Organization</h5>
+            <span class='font-weight-bold'>we never get anything done</span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name = 'organization' id='organization'>
+            <span class='font-weight-bold'>always on top of it</span>
+        </div>
+        <div class="slidecontainer">
+            <h5>Career</h5>
+            <span class='font-weight-bold'>-$</span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name = 'career' id='career'>
+            <span class='font-weight-bold'>$$$</span>
+        </div>
+        <div class="slidecontainer">
+            <h5>Social</h5>
+            <span class='font-weight-bold'>it's quiet</span></span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name = 'community' id='community'>
+            <span class='font-weight-bold'>I found my best friends</span>
+        </div>
+        <div class="slidecontainer">
+            <h5>Network</h5>
+            <span class='font-weight-bold'>n/a</span></span>
+            <input type='range' min='1' max='5' value='3' class='slider' step='1' list='slidersteps' name = 'networking' id='networking'>
+            <span class='font-weight-bold'>final club</span>
+        </div>
+        <div class="form-group">
+            <label for='hrs' class='question'>Hours/week (including meetings/events):</label>
+            <input type='number' autocomplete="off" autofocus class="form-control" name="hrs" id='hrs' min='0' max='128' required>
+        </div>
+        <!-- https://css-tricks.com/auto-growing-inputs-textareas/ -->
+        <div class="form-group">
+            <label class='input-sizer stacked' for='org_thoughts'>
+                <span>General comments on the organization</span>
+                <textarea oninput="this.parentNode.dataset.value = this.value" rows="5" cols = '60' name = 'org_thoughts' id='org_thoughts'></textarea>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for='comp' class='question'>Is there a comp?</label>
+            <input type='radio' name='comp' value='y' class='question'>Yes</input>
+            <input type='radio' name='comp' value='n' class='question' checked>No</input>
+        </div>
+        <div class="form-group">
+            <label for='comp_time' class='question'>If there is a comp, how many hours/week did you spend on it?:</label>
+            <input type='number' autocomplete="off" autofocus class="form-control" placeholder='0' name="comp_time" id='comp_time' min='0' max='4380'>
+        </div>
+        <div class="form-group">
+            <label for='comp_diff' class='question'>If there is a comp, how difficult is it?</label>
+            <select name='comp_diff'>
+                <option selected value='na'>--</option>
+                {% for level in compDiff %}
+                    <option value='{{ level }}'>{{ level }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class='input-sizer stacked' for='comp_thoughts'>
+                <span>Thoughts on comp? Advice for prospective compers?</span>
+                <textarea oninput="this.parentNode.dataset.value = this.value" rows="5" cols = '60' name = 'comp_thoughts' id='comp_thoughts'></textarea>
+            </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <script>
+            Array.from( document.querySelectorAll('[data-expand]'), (input)=>{
+            let parent = input.parentNode;
+            function updateSize(){
+                parent.dataset.value = input.value
+            }
+            input.addEventListener('input', updateSize);
+            updateSize();
+            });
+        </script>
+{% endblock %}
