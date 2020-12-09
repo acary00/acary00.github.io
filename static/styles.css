@@ -1,0 +1,210 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+nav .nav-item
+{
+    text-transform: uppercase;
+    font-size: 1em;
+    /* font-weight: bold; */
+    /*text-shadow: 2px 2px 0 rgba(0,0,0,.15);*/
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main table
+{
+    /* left-align contents */
+    text-align: left;
+    width: 100%;
+    border: solid 1px;
+    padding: .25em .5em;
+    margin: 5px;
+    box-shadow: 4px 4px 0px #000;
+}
+
+main tfoot
+{
+    /* boldface tables' footers */
+    font-weight: bold;
+}
+
+main thead
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.3em;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+}
+
+h5 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+
+}
+
+h6 {
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.question{
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+
+.input-sizer {
+  display: inline-grid;
+  vertical-align: top;
+  align-items: center;
+  position: relative;
+  border: solid 1px;
+  padding: .25em .5em;
+  margin: 5px;
+  box-shadow: 4px 4px 0px #000;
+  }
+
+.stacked {
+    padding: .5em;
+    align-items: stretch;
+    }
+
+textarea {
+    width: auto;
+    min-width: 1em;
+    font: inherit;
+    padding: 0.25em;
+    margin: 0;
+    resize: none;
+    background: none;
+    appearance: none;
+    border: none;
+  }
+
+ span {
+    padding: 0.25em;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+  }
+
+.span-slider {
+    width: 20%;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+ }
+
+table .table-pop {
+    width: auto;
+    min-width: 1em;
+    font: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.25em;
+    margin: 0;
+    resize: none;
+    background: none;
+    appearance: none;
+    border: none;
+    box-shadow: 4px 4px 0px #000;
+}
+
+table .table-pop thead {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table .comment {
+    width: 100%;
+}
+
+.comment {
+    text-align: center;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.15);
+}
+
+.slidecontainer {
+    width: 90%;
+
+
+}
+
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 50%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    margin: 0 auto;
+}
