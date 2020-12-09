@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if msg == '' %}
+        <table class='table table-striped' id='product'>
+            <thread>
+                <tr>
+                    <th>Organization</th>
+                    <th>Q-Score</th>
+                    <th></th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for fav in favs %}
+                    <tr>
+                        <td><a href='https://e559a3e2-0917-4022-b673-e24ffc3358f6-ide.cs50.xyz:8080/organizations/{{ fav.name }}'>{{ fav.name }}</a></td>
+                        <td>{{ fav.qscore }}</td>
+                        <form action="/" method="post">
+                            <input type='hidden' name='rem' value='{{ fav.name }}' class='remove-item' />
+                            <td><button type='submit'>X</button></td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    {% else %}
+        <p>{{ msg }}</p>
+    {% endif %}
+{% endblock %}
